@@ -1,28 +1,21 @@
 #!/bin/bash
-#start webserver for naominet.jp
-cd /home/pi/pi0-netboot/; python -m SimpleHTTPServer 80&
 
 #grab filename from rom dir
-thefile=$(ls /home/pi/pi0-netboot/RomBINS/)
 
 #find live host
-z=192.168.1
-foundit=0
-
-sleep 10
-
-while [ ${foundit} -ne 1 ]
+thefile=""
+while ! ping -c1 -w1 $host  &> /dev/null
 do
-for i in `seq 100 102`
-do
-	ping -c1 ${z}.${i} > /dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		hostlive=${z}.${i}
-		foundit=1
-		break
-	fi
-done
+	thefile=$(ls /media/usb0/ | head -1) # Limit to one file
+	host=$(cat /var/lib/misc/dnsmasq.leases | grep -i 00:D0:F1 | cut -f3 -d " ") # Filter for only Naomis
+        echo "pinging $host"
+        sleep 2
 done
 
+echo "Naomi is up at $host"
 #shipit
-/home/pi/pi0-netboot/netboot_upload_tool $hostlive 10703 /home/pi/pi0-netboot/RomBINS/$thefile 
+echo sending $thefile
+echo /home/pi/pi0-netboot/netboot_upload_tool $host 10703 /media/usb0/$thefile 
+/home/pi/pi0-netboot/netboot_upload_tool $host 10703 /media/usb0/$thefile 
+
+

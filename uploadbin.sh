@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#start webserver for naominet.jp
+cd /home/pi/pi0-netboot/; python -m SimpleHTTPServer 80&
+
 #grab filename from rom dir
 
 #find live host

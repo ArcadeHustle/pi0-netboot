@@ -21,6 +21,7 @@ Login with root /1234 , set yourself a password.
 
 create a new user as asked. 
 
+```
 apt-get update
 apt-get dist-upgrade
 apt-get install openssh-server dnsmasq lockfile-progs
@@ -30,6 +31,7 @@ rm /etc/systemd/system/multi-user.target.wants/dnsmasq.service
 
 wget http://http.us.debian.org/debian/pool/main/u/usbmount/usbmount_0.0.22_all.deb
 dpkg -i usbmount_0.0.22_all.deb
+
 
 echo -e "\nauto eth0" >> /etc/network/interfaces
 echo "allow-hotplug eth0" >> /etc/network/interfaces
@@ -48,7 +50,7 @@ echo 'rm /var/lib/misc/dnsmasq.leases' >> /etc/rc.local
 echo 'dnsmasq --interface=eth0 --except-interface=lo -R --dhcp-range=192.168.1.100,192.168.1.102,255.255.255.0,5m --dhcp-option=6,192.168.1.1 --dhcp-option=3,192.168.1.1 --log-dhcp -q -K -d &'  >> /etc/rc.local
 echo '/home/pi/pi0-netboot/uploadbin.sh&'  >> /etc/rc.local
 echo 'exit 0'   >> /etc/rc.local
-
+```
 
 ## Todo ###
 

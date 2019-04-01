@@ -52,10 +52,14 @@ echo '/home/pi/pi0-netboot/uploadbin.sh&'  >> /etc/rc.local
 echo 'exit 0'   >> /etc/rc.local
 ```
 
-## Todo ###
+## Todo for install script ###
 
-/etc/usbmount/usbmount.conf edit 
+```
+Edit /etc/usbmount/usbmount.conf ?
+
 create /etc/systemd/system/usbmount@.service
-/lib/udev/rules.d/usbmount.rules
-/etc/systemd/system/systemd-udevd.service.d/shared-mount-ns.conf
 
+change /lib/udev/rules.d/usbmount.rules?
+
+/etc/systemd/system/systemd-udevd.service.d/shared-mount-ns.conf
+```

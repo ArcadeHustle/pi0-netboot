@@ -1,7 +1,7 @@
 # Opi0-netboot
 Single Game USB based NetBoot interface for Orange Pi Zero. RasPi proved to be unreliable so it is no longer supported. 
 
-# Current image - https://mega.nz/#!k2QAGC5C!cnRxfSd2nDdZJkVlJxZOTQ4l1HF6C5Pai7spSP2slMc
+# Current image - https://mega.nz/#!VIR2GISZ!CX-qWbJjQY73RGfHLEpRGvWpoeNkpffJDgchIisOqQY
 Use this if you are lazy. Set your Naomi to "remote" so it grabs a DHCP address. Put only ONE game on a USB stick with ONE partition, and NO other files. Reboot... profit. To change games, change USB sticks, reboot. 
 
 # Example script to install on Orange Pi Zero - https://www.armbian.com/orange-pi-zero/
